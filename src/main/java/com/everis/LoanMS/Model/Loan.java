@@ -18,11 +18,8 @@ public class Loan
     private String number;
 
     @NotBlank
-    private String owners;
+    private String owner;
 
     @NotBlank
     private String currency;
-
-    @NotBlank
-    private int balance;
 }

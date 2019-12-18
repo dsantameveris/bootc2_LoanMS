@@ -16,6 +16,24 @@ public class LoanServiceImpl implements LoanService{
     @Autowired
     private LoanRepo repo;
 
+    //Get All Accounts
+    @Override
+    public Flux<Loan> findAllLoans() {
+        return repo.findAll();
+    }
+
+    //Get account by Number
+    @Override
+    public Mono<Loan> findLoanByNumber(String number) {
+        return repo.findByNumber(number);
+    }
+
+    //Get account by Owner
+    @Override
+    public Mono<Loan> findLoanByOwner(String owner) {
+        return repo.findByOwner(owner);
+    }
+
     //Create Account
     @Override
     public Mono<Loan> addLoan(Loan loan) {
@@ -27,10 +45,4 @@ public class LoanServiceImpl implements LoanService{
     public Mono<Void> delLoan(Loan loan) {
         return repo.delete(loan);
     }
-
-    //Get All Accounts
-    @Override
-    public Flux<Loan> findAllLoans() {
-        return repo.findAll();
-    }    
 }
